@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="plays">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="play">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="item">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="subtypes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="subtype">
+                            <xs:complexType>
+                              <xs:attribute name="value" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="objecttype" type="xs:string" use="required" />
+                  <xs:attribute name="objectid" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="comments" type="xs:string" />
+              <xs:element name="players">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="player">
+                      <xs:complexType>
+                        <xs:attribute name="username" type="xs:string" use="optional" />
+                        <xs:attribute name="userid" type="xs:string" use="optional" />
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="startposition" type="xs:string" use="optional" />
+                        <xs:attribute name="color" type="xs:string" use="optional" />
+                        <xs:attribute name="score" type="xs:string" use="optional" />
+                        <xs:attribute name="new" type="xs:string" use="optional" />
+                        <xs:attribute name="rating" type="xs:string" use="optional" />
+                        <xs:attribute name="win" type="xs:string" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required" />
+            <xs:attribute name="date" type="xs:date" use="required" />
+            <xs:attribute name="quantity" type="xs:string" use="optional" />
+            <xs:attribute name="length" type="xs:string" use="optional" />
+            <xs:attribute name="incomplete" type="xs:string" use="required" />
+            <xs:attribute name="nowinstats" type="xs:string" use="required" />
+            <xs:attribute name="location" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="username" type="xs:string" use="required" />
+      <xs:attribute name="userid" type="xs:string" use="required" />
+      <xs:attribute name="total" type="xs:string" use="required" />
+      <xs:attribute name="page" type="xs:string" use="required" />
+      <xs:attribute name="termsofuse" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

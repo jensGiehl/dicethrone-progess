@@ -1,0 +1,8 @@
+package de.agiehl.games.dt.generator.model;
+
+public enum PlayableCharacters {
+
+	ARTIFICER, BARBARIAN, CURSED_PIRATE, GUNSLINGER, HUNTRESS, MONK, MOON_ELF, NINJA, PALADIN, PYROMANCER, SAMURAI,
+	SERAPH, SHADOW_THIEF, TACTICIAN, TREANT, VAMPIRE_LORD
+
+}
