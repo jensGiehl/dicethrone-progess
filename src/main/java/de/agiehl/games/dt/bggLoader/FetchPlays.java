@@ -5,6 +5,7 @@ import static java.util.Objects.nonNull;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +29,17 @@ public class FetchPlays {
 	@Value("${bgg.api.plays.maxresult:100}")
 	private int maxResultsPerPage;
 
+	@Value("${bgg.api.use-deltas}")
+	private boolean useDeltas;
+
+	@Value("${bgg.api.delta.grace-period.minutes}")
+	private long gracePeriodInMinutes;
+
 	@Autowired
 	private BggLoader bggLoader;
 
 	public List<Play> fetchPlays(String bggUsername, LocalDate minDate) {
-		log.info("Fetch plays for {} starting at {}", bggUsername, minDate);
+		log.info("Fetch plays for {}", bggUsername);
 
 		int pageCount = 1;
 		int maxPage = 1;
@@ -40,7 +47,11 @@ public class FetchPlays {
 		List<Play> allDiceThronePlays = new ArrayList<>();
 		do {
 			String url = bggBaseUrl + "?username=" + bggUsername + "&page=" + pageCount;
-			if (nonNull(minDate)) {
+			if (nonNull(minDate) && useDeltas) {
+				LocalDate gracePeriodDate = LocalDateTime.now().minusMinutes(gracePeriodInMinutes).toLocalDate();
+				if (gracePeriodDate.isBefore(minDate)) {
+					minDate = gracePeriodDate;
+				}
 				url += "&mindate=" + minDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 			}
 
