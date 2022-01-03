@@ -32,6 +32,9 @@ public class FetchAndGenerateHtmlService {
 
 	public void fetchAndPersitsAll() {
 		for (String username : bggUsernames) {
+			if (username.isBlank()) {
+				continue;
+			}
 			log.info("Process BGG user {}", username);
 
 			Optional<LocalDate> lastUpdateForUsername = persistens.getLastUpdate(username);
