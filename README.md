@@ -34,7 +34,7 @@ File format: `.png`
 ## Technical requirements
 To build the application you need a JDK >= 17. 
 
-Since I don't have a proper alerting installed on my server, I've added the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback): a0e8cfa345524f3f70cf99aca9edc578328d8a97
+Since I don't have a proper alerting installed on my server, I've added the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback).
 
 This needs to be configured accordingly when **building** it. The [Maven Resources Plugin](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) needs the following variables:
 
