@@ -17,7 +17,7 @@ You would need to include the name of the character in the "**Team/Color**" fiel
 The mapping of the names can be found in the [application.properties](src/main/resources/application.properties).
 
 Furthermore, this repro **does not include graphics** (copyright). 
-You can of course use your own images, but the UI is based on the images from [DiceThrone Hero Slider](https://shop.dicethrone.com/pages/heroes). 
+You can of course use your own images, but the UI is based on the images from [DiceThrone Hero Slider](https://shop.dicethrone.com/pages/heroes) (179x323 Pixel). 
 But you have to download them yourself.
 
 The UI expects the images in the same folder under the same name (all uppercase) as defined in the [enum](src/main/java/de/agiehl/games/dt/generator/model/PlayableCharacters.java).
