@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import de.agiehl.games.dt.bggLoader.FetchPlays;
-import de.agiehl.games.dt.generator.GenerateHtml;
 import de.agiehl.games.dt.model.Plays.Play;
 import de.agiehl.games.dt.persistents.PersistentsService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +23,6 @@ public class FetchAndGenerateHtmlService {
 	@Autowired
 	private FetchPlays playFetcher;
 
-	@Autowired
-	private GenerateHtml generateHtmlService;
-
 	@Value("#{'${bgg.api.usernames}'.split(',')}")
 	private List<String> bggUsernames;
 
@@ -35,6 +31,9 @@ public class FetchAndGenerateHtmlService {
 			if (username.isBlank()) {
 				continue;
 			}
+
+			username = username.trim();
+
 			log.info("Process BGG user {}", username);
 
 			Optional<LocalDate> lastUpdateForUsername = persistens.getLastUpdate(username);
