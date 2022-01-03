@@ -7,6 +7,8 @@ Questions like "*Have I played this one before?*" are not uncommon, especially i
 Since I log every game on [Boardgamegeek](https://boardgamegeek.com/) and also note who has played which character, 
 I just had to write a program that reads and evaluates this data.
 
+![Screenshot of the app](doc/overview.png)
+
 ## Requirements
 You would need to include the name of the character in the "**Team/Color**" field in your logged games. And that per teammate!
 
