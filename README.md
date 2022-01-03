@@ -21,7 +21,7 @@ You can of course use your own images, but the UI is based on the images from [D
 But you have to download them yourself.
 
 The UI expects the images in the same folder under the same name (all uppercase) as defined in the [enum](src/main/java/de/agiehl/games/dt/generator/model/PlayableCharacters.java).
-File format: .png
+File format: `.png`
 
 ### Example
 * ARTIFICER.png
@@ -34,7 +34,7 @@ File format: .png
 ## Technical requirements
 To build the application you need a JDK >= 17. 
 
-Since I don't have a proper alerting installed on my server, I've added the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback): a0e8cfa
+Since I don't have a proper alerting installed on my server, I've added the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback): a0e8cfa345524f3f70cf99aca9edc578328d8a97
 
 This needs to be configured accordingly when **building** it. The [Maven Resources Plugin](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) needs the following variables:
 
