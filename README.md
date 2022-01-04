@@ -34,22 +34,24 @@ File format: `.png`
 ## Technical requirements
 To build the application you need a JDK >= 17. 
 
-Since I don't have a proper alerting installed on my server, I've added the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback).
-
-This needs to be configured accordingly when **building** it. The [Maven Resources Plugin](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html) needs the following variables:
-
-* `botToken`
-* `chatId`
-
-Details in the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback).
-
-
-At runtime the application also needs some information which can be set as described in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config):
+At runtime the application needs some information which can be set as described in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config):
 
 | Property name  | Description | 
 | ------------- | ------------- |
 | `bgg.api.usernames`  | comma separated list of [Boardgamegeek](https://boardgamegeek.com/) usernames whose game statistics should be included. |
 | `output.html.folder`  | Folder in which the HTML should be written  | 
 | `spring.datasource.url` | Path and file name for the H2 database. Without specification the database is not persistent and it is not possible to run the application in a delta mode. |
+
+
+Since I don't have a proper alerting installed on my server, I've added the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback).
+If you want to use them, you have to provide the following properties:
+
+| Property name  | Description | 
+| ------------- | ------------- |
+| `log.telegram.bottoken`  | Telegram Bot Token |
+| `log.telegram.chatid`  | Telegram Chat ID where the messages should be sent to |
+
+
+For details have a look at the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback).
 
 All further info to start the application could be found in the [Spring Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.running-your-application).
