@@ -55,3 +55,17 @@ If you want to use them, you have to provide the following properties:
 For details have a look at the [Telegram Logback Appender](https://github.com/paolodenti/telegram-logback).
 
 All further info to start the application could be found in the [Spring Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.running-your-application).
+
+
+## :scream: No Tests, Dirty code, not following best practices and so on
+I am aware that this software is not a masterpiece (in the sense of software craftsmanship).
+
+But it doesn't have to be (yet). If you look at it realistically, I am probably the only user of this software (clearly, because it is also tailored to my needs). And even I will use the software only temporarily.
+
+So why should I invest time in quality? Okay, that sounds like an excuse.... but look at the code: It's really manageable. And even if it is no longer maintainable... who cares? :broken_heart: 
+
+That's why I rather use the time for my next project ... :smirk:
+
+
+But that's not to say that anyone can steer anything to it. On the contrary!
+Besides, I'm always interested in how to solve things better (even if I know that some things here are quick and especially dirty). So feel free to contact me. :email:
