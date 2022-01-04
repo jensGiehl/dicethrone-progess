@@ -3,21 +3,29 @@
 	<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
 	
+	<springProperty scope="context" name="botToken" source="log.telegram.bottoken" defaultValue=""/>
+	<springProperty scope="context" name="chatId" source="log.telegram.chatid" defaultValue=""/>
+	<springProperty scope="context" name="telegramLogLevel" source="log.telegram.loglevel" defaultValue="WARN"/>
+	
 	<appender name="TELEGRAM"
 		class="com.github.paolodenti.telegram.logback.TelegramAppender">
-		<botToken>@botToken@</botToken>
-		<chatId>@chatId@</chatId>
+		<botToken>${botToken}</botToken>
+		<chatId>${chatId}</chatId>
 		<Layout class="ch.qos.logback.classic.PatternLayout">
 			<Pattern>%msg</Pattern>
 		</Layout>
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-		  <level>WARN</level>
+		  <level>${telegramLogLevel}</level>
 		</filter>
 	</appender>
 	
 	<root level="INFO">
 		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="TELEGRAM" />
+		<if condition='! property("chatId").isEmpty()'>
+    		<then>
+				<appender-ref ref="TELEGRAM" />
+			</then>
+		</if>
 	</root>
 	
 	<logger name="org.springframework.web" level="WARN"/>

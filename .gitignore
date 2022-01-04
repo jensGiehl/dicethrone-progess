@@ -5,8 +5,7 @@ target/
 !**/src/test/**/target/
 src/main/resources/images
 /*.png
-index.html
-build.sh
+/index.html
 
 ### STS ###
 .apt_generated
